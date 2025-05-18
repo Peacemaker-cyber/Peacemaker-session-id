@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(PORT, () => {
     console.log(`
-Don't Forgot To Give Star KANGO-XMD 
+Don't Forgot To Give Star PEACEMAKER-MD 
 
  Server running on http://localhost:` + PORT)
 })
