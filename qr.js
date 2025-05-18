@@ -73,33 +73,33 @@ var randomItem = selectRandomItem(items);
                         let md = "KANGO-XMD~" + string_session;
                         let code = await sock.sendMessage(sock.user.id, { text: md });
                         let desc = `*╭━━━━━━━━━━━━━━━━━━━━━╮
-┃  🚀 KANGO-XMD USER 🚀  ┃
+┃  🚀 PEACEMAKER-MD USER 🚀  ┃
 ╰━━━━━━━━━━━━━━━━━━━━━╯
 
-👋🏻 Hello there, KANGO-XMD User!  
+👋🏻 Hello there, PEACEMAKER-MD User!  
 
 > ⚠️ *Do not share your session ID with your GF!* 😂  
 
-✅ **Thanks for using KANGO-XMD!** 🚩  
+✅ **Thanks for using PEACEMAKER-MD!** 🚩  
 
 ━━━━━━━━━━━━━━━━━━━━━━━  
 
 📢 **Join our WhatsApp Channel:**  
-🔗 https://whatsapp.com/channel/0029Va8YUl50bIdtVMYnYd0E  
+🔗 https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514  
 
 ⭐ **Don't forget to fork the repo:**  
-🔗 https://github.com/OfficialKango/KANGO-XMD  
+🔗https://github.com/Peacemaker-cyber/Peacemaker-md
 
 ━━━━━━━━━━━━━━━━━━━━━━━  
 
-> *© Powered by HECTOR MANUEL 🚀*`;
+> *© Powered by Peacemaker Cyber 🚀*`;
                         await sock.sendMessage(sock.user.id, {
 text: desc,
 contextInfo: {
 externalAdReply: {
 title: " 𝖇𝖔𝖙 𝖈𝖔𝖓𝖓𝖊𝖈𝖙𝖊𝖉",
 thumbnailUrl: "https://files.catbox.moe/7pg2gp.jpg",
-sourceUrl: "https://whatsapp.com/channel/0029Va8YUl50bIdtVMYnYd0E",
+sourceUrl: "https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514",
 mediaType: 1,
 renderLargerThumbnail: true
 }  
@@ -109,33 +109,33 @@ renderLargerThumbnail: true
                     } catch (e) {
                             let ddd = sock.sendMessage(sock.user.id, { text: e });
                             let desc = `*╭━━━━━━━━━━━━━━━━━━━━━╮
-┃  🚀 KANGO-XMD USER 🚀  ┃
+┃  🚀 PEACEMAKER-MD USER 🚀  ┃
 ╰━━━━━━━━━━━━━━━━━━━━━╯
 
-👋🏻 Hello there, KANGO-XMD User!  
+👋🏻 Hello there, PEACEMAKER-MD User!  
 
 > ⚠️ *Do not share your session ID with your GF!* 😂  
 
-✅ **Thanks for using KANGO-XMD!** 🚩  
+✅ **Thanks for using PEACEMAKER-MD!** 🚩  
 
 ━━━━━━━━━━━━━━━━━━━━━━━  
 
 📢 **Join our WhatsApp Channel:**  
-🔗 https://whatsapp.com/channel/0029Va8YUl50bIdtVMYnYd0E  
+🔗 https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514  
 
 ⭐ **Don't forget to fork the repo:**  
-🔗 https://github.com/OfficialKango/KANGO-XMD  
+🔗 https://github.com/Peacemaker-cyber/Peacemaker-md  
 
 ━━━━━━━━━━━━━━━━━━━━━━━  
 
-> *© Powered by HECTOR MANUEL 🚀*`;
+> *© Powered by PEACEMAKER CYBER🚀*`;
                             await sock.sendMessage(sock.user.id, {
 text: desc,
 contextInfo: {
 externalAdReply: {
 title: " 𝖒𝖉 𝖈𝖔𝖓𝖓𝖊𝖈𝖙𝖊𝖉 ✅  ",
 thumbnailUrl: "https://i.imgur.com/GVW7aoD.jpeg",
-sourceUrl: "https://whatsapp.com/channel/0029Va8YUl50bIdtVMYnYd0E",
+sourceUrl: "https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514",
 mediaType: 2,
 renderLargerThumbnail: true,
 showAdAttribution: true
