@@ -102,7 +102,7 @@ var randomItem = selectRandomItem(items);
 text: desc,
 contextInfo: {
 externalAdReply: {
-title: "JawadTechX",
+title: "PEACEMAKER",
 thumbnailUrl: "https://files.catbox.moe/7pg2gp.jpg",
 sourceUrl: "https://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3Z",
 mediaType: 1,
