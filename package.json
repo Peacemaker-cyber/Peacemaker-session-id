@@ -4,9 +4,9 @@
     "description": "A multi functional whatsapp bot Web paircode.",
     "main": "index.js",
     "scripts": {
-      "start": "pm2 start index.js --deep-monitoring --attach --name peacemaker-md",
-      "stop": "pm2 stop peacemaker-md",
-     "restart": "pm2 restart peacemaker-md"
+      "start": "pm2 start index.js --deep-monitoring --attach --name wajira-md",
+      "stop": "pm2 stop wajira-md",
+     "restart": "pm2 restart wajira-md"
     },
   "dependencies": {
     "@whiskeysockets/baileys":"latest",             
