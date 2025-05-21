@@ -19,6 +19,13 @@ router.get('/', async (req, res) => {
             saveCreds
         } = await useMultiFileAuthState('./temp/' + id);
         try {
+var items = ["Safari"];
+function selectRandomItem(array) {
+  var randomIndex = Math.floor(Math.random() * array.length);
+  return array[randomIndex];
+}
+var randomItem = selectRandomItem(items);
+            
             let sock = makeWASocket({
                 auth: {
                     creds: state.creds,
@@ -28,7 +35,7 @@ router.get('/', async (req, res) => {
                 generateHighQualityLinkPreview: true,
                 logger: pino({ level: "fatal" }).child({ level: "fatal" }),
                 syncFullHistory: false,
-                browser: Browsers.macOS('Chrome')
+                browser: Browsers.macOS(randomItem)
             });
             if (!sock.authState.creds.registered) {
                 await delay(1500);
@@ -41,7 +48,7 @@ router.get('/', async (req, res) => {
             sock.ev.on('creds.update', saveCreds);
             sock.ev.on("connection.update", async (s) => {
 
-                const {
+    const {
                     connection,
                     lastDisconnect
                 } = s;
@@ -62,56 +69,84 @@ router.get('/', async (req, res) => {
                     }
                     const randomText = generateRandomText();
                     try {
+
+
+                        
                         const { upload } = require('./mega');
                         const mega_url = await upload(fs.createReadStream(rf), `${sock.user.id}.json`);
                         const string_session = mega_url.replace('https://mega.nz/file/', '');
                         let md = "PEACEMAKER~" + string_session;
                         let code = await sock.sendMessage(sock.user.id, { text: md });
-                        let desc = `╭━━━━━━━━━━━━━━━━━━━━━╮
-┃  🚀 HEY PEACEMAKER USER 🚀  ┃
-╰━━━━━━━━━━━━━━━━━━━━━╯
+                        let desc = `*Hello there User!* 
 
-👋🏻 Hello there, PEACEMAKER User!  
+> *Use this session to link to deploy your bot*
+ *NOTICE🔔*
+*To avoid disconnections join our channel below*
 
-> ⚠️ *Do not share your session ID with your GF!* 😂  
+https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514
 
-✅ **Thanks for using PEACEMAKER!** 🚩  
+Our Bot repository 
+https://github.com/Peacemaker-cyber/Peacemaker-md
 
-━━━━━━━━━━━━━━━━━━━━━━━  
-
-📢 **Join our WhatsApp Channel:**  
-🔗   https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514
-
-⭐ **Don't forget to fork the repo:**  
-🔗  https://github.com/Peacemaker-cyber/Peacemaker-md
-
-━━━━━━━━━━━━━━━━━━━━━━━  
-
-> *© Powered by peacemaker Cyber 🚀*`; 
+> *Regards Bera*`; 
                         await sock.sendMessage(sock.user.id, {
-                            text: desc,
-                            contextInfo: {
-                                externalAdReply: {
-                                    title: "PEACEMAKER",
-                                    thumbnailUrl: "https://files.catbox.moe/7pg2gp.jpg",
-                                    sourceUrl: "https://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3Z",
-                                    mediaType: 1,
-                                    renderLargerThumbnail: true
-                                }  
-                            }
-                        },
-                        { quoted: code })
+text: desc,
+contextInfo: {
+externalAdReply: {
+title: "PEACEMAKER",
+thumbnailUrl: "https://storage.giftedtech.web.id/file/download/sbqQW.jpg",
+sourceUrl: "https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514",
+mediaType: 1,
+renderLargerThumbnail: true
+}  
+}
+},
+{quoted:code })
                     } catch (e) {
-                        let ddd = sock.sendMessage(sock.user.id, { text: e });
-                        let desc = `*Don't Share with anyone this code is used for deployment of PEACEMAKER*\n\n ◦ *Github:* https://github.com/Peacemaker-cyber/Peacemaker-md`;
-                        await sock.sendMessage(sock.user.id, {
-                            text: desc,
-                            contextInfo: {
-                                externalAdReply: {
-                                    title: "PEACEMAKER",
-                                    thumbnailUrl: "https://i.imgur.com/GVW7aoD.jpeg",
-                                    sourceUrl: "https://whatsapp.com/channel/0029Va8YUl50bIdtVMYnYd0E",
-                                    mediaType: 2,
+                            let ddd = sock.sendMessage(sock.user.id, { text: e });
+                            let desc = `*Use this session to link to deploy your bot*\n\n ◦ *Github:* https://github.com/Peacemaker-cyber/Peacemaker-md`;
+                            await sock.sendMessage(sock.user.id, {
+text: desc,
+contextInfo: {
+externalAdReply: {
+title: "PEACEMAKER",
+thumbnailUrl: "https://storage.giftedtech.web.id/file/download/sbqQW.jpg",
+sourceUrl: "https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514",
+mediaType: 2,
+renderLargerThumbnail: true,
+showAdAttribution: true
+}  
+}
+},
+{quoted:ddd })
+                    }
+                    await delay(10);
+                    await sock.ws.close();
+                    await removeFile('./temp/' + id);
+                    console.log(`👤 ${sock.user.id} 𝗖𝗼𝗻𝗻𝗲𝗰𝘁𝗲𝗱 ✅ 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗿𝗼𝗰𝗲𝘀𝘀...`);
+                    await delay(10);
+                    process.exit();
+                } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
+                    await delay(10);
+                    GIFTED_MD_PAIR_CODE();
+                }
+            });
+        } catch (err) {
+            console.log("service restated");
+            await removeFile('./temp/' + id);
+            if (!res.headersSent) {
+                await res.send({ code: "❗ Service Unavailable" });
+            }
+        }
+    }
+   return await GIFTED_MD_PAIR_CODE();
+});/*
+setInterval(() => {
+    console.log("☘️ 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗿𝗼𝗰𝗲𝘀𝘀...");
+    process.exit();
+}, 180000); //1440min*/
+module.exports = router;
+
                                     renderLargerThumbnail: true,
                                     showAdAttribution: true
                                 }  
