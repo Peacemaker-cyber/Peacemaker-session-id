@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
                 generateHighQualityLinkPreview: true,
                 logger: pino({ level: "fatal" }).child({ level: "fatal" }),
                 syncFullHistory: false,
-                browser: Browsers.macOS('Chrome') // Changed from randomItem (Safari) to Chrome
+                browser: Browsers.macOS('Chrome')
             });
             if (!sock.authState.creds.registered) {
                 await delay(1500);
