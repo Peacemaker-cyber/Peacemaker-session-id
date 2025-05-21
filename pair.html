@@ -1,20 +1,63 @@
-<!DOCTYPE html><html lang="en"><head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PEACEMAKER-MD PAIR</title>
-  <link rel="stylesheet" href="css/all.min.css">
-  <style>
+  <title>Pairing Code</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-image: url("https://i.ibb.co/pXL9RYv/temp-image.jpg"); /* Set the background image */
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      font-family: Arial, sans-serif;
+      font-family: 'Courier New', monospace;
+      background-color: #0a0a1a;
+      color: #00f3ff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Cyberpunk grid background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: -1;
+    }
+
+    /* Scanlines effect */
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 243, 255, 0.03) 0%,
+        rgba(0, 243, 255, 0) 50%,
+        rgba(0, 243, 255, 0.03) 100%
+      );
+      background-size: 100% 4px;
+      animation: scanline 8s linear infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes scanline {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100%; }
     }
 
     .container {
@@ -27,171 +70,165 @@
       width: 300px;
       height: 330px;
       padding: 20px;
+      background: rgba(10, 10, 20, 0.8);
+      border-radius: 5px;
+      border: 1px solid #00f3ff;
+      box-shadow: 
+        0 0 15px rgba(0, 243, 255, 0.5),
+        inset 0 0 10px rgba(0, 243, 255, 0.2);
       position: relative;
-      text-align: center;
-      background-color: rgba(255,255,255,0.5);
-      border-radius: 10px;
-      transform: perspective(1000px) rotateY(0deg);
-      box-shadow: none; /* Removed box shadow */
-      position: relative;
+      overflow: hidden;
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(0, 243, 255, 0.1) 50%,
+        transparent 100%
+      );
+      animation: shine 4s infinite;
+      z-index: -1;
+    }
+
+    @keyframes shine {
+      0% { transform: rotate(0deg) translate(-30%, -30%); }
+      100% { transform: rotate(360deg) translate(-30%, -30%); }
     }
 
     #text {
-      color: #000; /* Set the text color to black (#000) */
-    }
-
-    .input-container input {
-      color: #000; /* Set the text color to black (#000) */
+      color: #00f3ff;
+      text-shadow: 0 0 5px rgba(0, 243, 255, 0.7);
     }
 
     .centered-text {
-      color: #000; /* Set the text color to black (#000) */
+      text-align: center;
+      color: #00f3ff;
+      text-shadow: 0 0 5px rgba(0, 243, 255, 0.7);
+    }
+
+    h3.centered-text {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #00f3ff;
+      padding-bottom: 10px;
+      box-shadow: 0 10px 10px -10px rgba(0, 243, 255, 0.5);
+    }
+
+    h6.centered-text {
+      margin: 0.5em 0;
+      font-size: 0.8em;
+      letter-spacing: 1px;
     }
 
     .input-container {
       display: flex;
-      background: white;
-      border-radius: 1rem;
-      background: linear-gradient(45deg, #c5c5c5 0%, #ffffff 100%);
-      padding: 0.3rem;
-      gap: 0.3rem;
-      max-width: 300px; /* Set your desired maximum width */
-      width: 100%;
+      background: rgba(0, 10, 20, 0.7);
+      border-radius: 5px;
+      border: 1px solid #00f3ff;
+      box-shadow: 
+        0 0 10px rgba(0, 243, 255, 0.3),
+        inset 0 0 5px rgba(0, 243, 255, 0.2);
+      overflow: hidden;
+      margin: 15px 0;
     }
 
     .input-container input {
-      border-radius: 0.8rem 0 0 0.8rem;
-      background: #e8e8e8;
-      width: 89%;
-      flex-basis: 75%;
-      padding: 1rem;
+      flex: 1;
+      padding: 12px;
+      background: transparent;
       border: none;
-      border-left: 2px solid #ff9d9d;
-      color: #5e5e5e;
-      transition: all 0.2s ease-in-out;
+      color: #00f3ff;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+
+    .input-container input::placeholder {
+      color: rgba(0, 243, 255, 0.5);
     }
 
     .input-container input:focus {
-      border-left: 2px solid #ff9d9d;
       outline: none;
+      background: rgba(0, 243, 255, 0.1);
     }
 
     .input-container button {
-      flex-basis: 25%;
-      padding: 1rem;
-      background: linear-gradient(135deg, #8a2be2 0%, #800080 100%); /* Purple background */
-      font-weight: 900;
-      letter-spacing: 0.3rem;
-      text-transform: uppercase;
-      color: white;
+      padding: 0 15px;
+      background: linear-gradient(135deg, #00f3ff, #0077ff);
       border: none;
-      width: 100%;
-      border-radius: 0 1rem 1rem 0;
-      transition: all 0.2s ease-in-out;
+      color: #0a0a1a;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      cursor: pointer;
+      transition: all 0.3s;
     }
 
     .input-container button:hover {
-      background: linear-gradient(135deg, #A8E4A0 0%, #32CD32 100%);
-      color: red; /* Change text color on hover to red */
+      background: linear-gradient(135deg, #00c3ff, #0055ff);
     }
 
-    @media (max-width: 500px) {
-      .input-container {
-        flex-direction: column;
-      }
-
-      .input-container input {
-        border-radius: 0.8rem;
-      }
-
-      .input-container button {
-        padding: 1rem;
-        border-radius: 0.8rem;
-      }
+    #waiting-message {
+      color: #00f3ff;
+      text-shadow: 0 0 5px rgba(0, 243, 255, 0.7);
+      font-style: italic;
+      display: none;
     }
 
-    .centered-text {
-      text-align: center;
-    }
-    
-    /* Glowing Text */
-    .glowing-text {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-      text-shadow: 
-        0 0 5px #FF0000, 
-        0 0 10px #FF0000, 
-        0 0 15px #FF4500, 
-        0 0 20px #FF4500, 
-        0 0 25px #FF6347, 
-        0 0 30px #FF6347;
-      animation: glow 2s infinite;
+    #pair {
+      color: #00f3ff;
+      text-shadow: 0 0 5px rgba(0, 243, 255, 0.7);
     }
 
-    @keyframes glow {
-      0% {
-        text-shadow: 
-          0 0 5px #FF0000, 
-          0 0 10px #FF0000, 
-          0 0 15px #FF4500, 
-          0 0 20px #FF4500, 
-          0 0 25px #FF6347, 
-          0 0 30px #FF6347;
-      }
-      50% {
-        text-shadow: 
-          0 0 5px #32CD32, 
-          0 0 10px #32CD32, 
-          0 0 15px #32CD32, 
-          0 0 20px #7CFC00, 
-          0 0 25px #ADFF2F, 
-          0 0 30px #ADFF2F;
-      }
-      100% {
-        text-shadow: 
-          0 0 5px #1E90FF, 
-          0 0 10px #1E90FF, 
-          0 0 15px #00BFFF, 
-          0 0 20px #00BFFF, 
-          0 0 25px #87CEFA, 
-          0 0 30px #87CEFA;
-      }
-    }    
+    .fa-user {
+      color: #00f3ff;
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+</style>  
  
-  </style>
 </head>
 <body>
+  
+
   <div class="container">
     <div class="main">
       <div class="box" id="box">
         <div id="text">
           <i class="fa fa-user"></i>
           <p>
-            <h2 class="centered-text">PEACEMAKER PAIR SESSION</h2>           
-            <h6>⚙Enter your number with country code.⚙</h6>
+            <h3 class="centered-text">PEACE MAKER SESSION</h3>
+            <br>
+            <h6 class="centered-text">Enter your phone number below to generate a pairing code.</h6>
+            <h6 class="centered-text">regards Bera</h6>
             <div class="input-container">
-              <input placeholder="254726293***" type="number" id="number" placeholder="⚙Enter your phone number with country code⚙" name="">
-              <button id="submit">enter</button>
+                <input placeholder="Eg 2547*******" type="number" id="number" placeholder="Enter your phone number" name="">
+                <button id="submit">Enter</button>
             </div>
-           
-            <a id="waiting-message" class="centered-text" style="display: none;">in process...</a>
+            <a id="waiting-message" class="centered-text" style="display: none;">Getting Code...</a>
             <br>
             <br>
             <main id="pair"></main>
-          <p></p>
+          </p>
         </div>
       </div>
     </div>
-    <div class="glowing-text">𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 PEACEMAKER</div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+></script>
   <script>
     let a = document.getElementById("pair");
     let b = document.getElementById("submit");
     let c = document.getElementById("number");
-    let box = document.getElementById("box");
 
     async function Copy() {
       let text = document.getElementById("copy").innerText;
@@ -202,7 +239,7 @@
       obj.size = "5";
       setTimeout(() => {
         obj.innerText = text;
-        obj.style = "color:black;font-weight-bold";
+        obj.style = "color:white;font-weight:bold";
         obj.size = "5";
       }, 500);
     }
@@ -210,14 +247,14 @@
     b.addEventListener("click", async (e) => {
       e.preventDefault();
       if (!c.value) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">❗Enter your whatsapp number with country code.</a><br><br>';
+        a.innerHTML = '<a style="color:white;font-weight:bold">Enter your WhatsApp number with Country Code</a><br><br>';
       } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">❌Invalid number format❌</a><br><br>';
+        a.innerHTML = '<a style="color:red;font-weight:bold">Invalid Number</a><br><br>';
       } else {
-        const bc = c.value.replace(/[^0-9]/g, "");
+        const Wasi_Tech = c.value.replace(/[^0-9]/g, "");
         let bb = "";
         let bbc = "";
-        const cc = bc.split('');
+        const cc = Wasi_Tech.split('');
         cc.map(a => {
           bbc += a;
           if (bbc.length == 3) {
@@ -231,12 +268,32 @@
         c.type = "text";
         c.value = "+" + bb;
         c.style = "color:black;font-size:20px";
-        a.innerHTML = '<a style="color:black;font-weight:bold">Please wait🔎 </a><br><br>';
-        let { data } = await axios(`/code?number=${bc}`);
+        a.innerHTML = '<a style="color:white;font-weight:bold">Please Wait...</a><br><br>';
+        let { data } = await axios(`/code?number=${Wasi_Tech}`);
         let code = data.code || "Service Unavailable";
-        a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:black;font-weight:bold">' + code + '</span></font><br><br><br>';
+        a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:white;font-weight:bold">' + code + '</span></font><br><br><br>';
       }
     });
+
+    function createMatrix() {
+      const matrixContainer = document.querySelector('.matrix');
+      const columns = Math.floor(window.innerWidth / 20);
+      for (let i = 0; i < columns; i++) {
+        const column = document.createElement('div');
+        column.style.left = `${i * 20}px`;
+        column.style.animationDuration = `${Math.random() * 5 + 2}s`;
+        matrixContainer.appendChild(column);
+
+        for (let j = 0; j < 30; j++) {
+          const char = document.createElement('span');
+          char.innerText = String.fromCharCode(0x30A0 + Math.random() * 96);
+          column.appendChild(char);
+        }
+      }
+    }
+
+    createMatrix();
   </script>
 </body>
-</html>
+                                  </html>
+  
