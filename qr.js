@@ -70,36 +70,26 @@ var randomItem = selectRandomItem(items);
                         const { upload } = require('./mega');
                         const mega_url = await upload(fs.createReadStream(rf), `${sock.user.id}.json`);
                         const string_session = mega_url.replace('https://mega.nz/file/', '');
-                        let md = "PEACEMAKER-MD~" + string_session;
+                        let md = "CLOUD-AI~" + string_session;
                         let code = await sock.sendMessage(sock.user.id, { text: md });
-                        let desc = `*╭━━━━━━━━━━━━━━━━━━━━━╮
-┃  🚀 PEACEMAKER-MD USER 🚀  ┃
-╰━━━━━━━━━━━━━━━━━━━━━╯
+                        let desc = `*Hello there User!* 
 
-👋🏻 Hello there, PEACEMAKER-MD User!  
+> *Use this session to link to deploy your bor*
+ *Thanks for Choosing us* 
+> Join WhatsApp Channel
+https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514
 
-> ⚠️ *Do not share your session ID with your GF!* 😂  
+Dont forget to follow us on GitHub 
+https://github.com/Peacemaker-cyber/Peacemaker-md
 
-✅ **Thanks for using PEACEMAKER-MD!** 🚩  
-
-━━━━━━━━━━━━━━━━━━━━━━━  
-
-📢 **Join our WhatsApp Channel:**  
-🔗 https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514  
-
-⭐ **Don't forget to fork the repo:**  
-🔗https://github.com/Peacemaker-cyber/Peacemaker-md
-
-━━━━━━━━━━━━━━━━━━━━━━━  
-
-> *© Powered by Peacemaker Cyber 🚀*`;
+> *Regards Peacemaker*`;
                         await sock.sendMessage(sock.user.id, {
 text: desc,
 contextInfo: {
 externalAdReply: {
-title: " 𝖇𝖔𝖙 𝖈𝖔𝖓𝖓𝖊𝖈𝖙𝖊𝖉",
-thumbnailUrl: "https://files.catbox.moe/7pg2gp.jpg",
-sourceUrl: "https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514",
+title: " PEACEMAKER MD 𝐂𝐎𝐍𝐄𝐂𝐓𝐄𝐃",
+thumbnailUrl: "https://storage.giftedtech.web.id/file/download/sbqQW.jpg",
+sourceUrl: "https://whatsapp.com/channel/0029VajJoCoLI8YePbpsnE3q",
 mediaType: 1,
 renderLargerThumbnail: true
 }  
@@ -108,33 +98,23 @@ renderLargerThumbnail: true
 {quoted:code })
                     } catch (e) {
                             let ddd = sock.sendMessage(sock.user.id, { text: e });
-                            let desc = `*╭━━━━━━━━━━━━━━━━━━━━━╮
-┃  🚀 PEACEMAKER-MD USER 🚀  ┃
-╰━━━━━━━━━━━━━━━━━━━━━╯
+                            let desc = `*Hello there User!* 
 
-👋🏻 Hello there, PEACEMAKER-MD User!  
+> *Use this session to link to deploy your bor*
+ *Thanks for Choosing us* 
+> Join WhatsApp Channel
+https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514
 
-> ⚠️ *Do not share your session ID with your GF!* 😂  
+Dont forget to follow us on GitHub 
+https://github.com/Peacemaker-cyber/Peacemaker-md
 
-✅ **Thanks for using PEACEMAKER-MD!** 🚩  
-
-━━━━━━━━━━━━━━━━━━━━━━━  
-
-📢 **Join our WhatsApp Channel:**  
-🔗 https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514  
-
-⭐ **Don't forget to fork the repo:**  
-🔗 https://github.com/Peacemaker-cyber/Peacemaker-md  
-
-━━━━━━━━━━━━━━━━━━━━━━━  
-
-> *© Powered by PEACEMAKER CYBER🚀*`;
+> *Made by EMMANUEL*`;
                             await sock.sendMessage(sock.user.id, {
 text: desc,
 contextInfo: {
 externalAdReply: {
-title: " 𝖒𝖉 𝖈𝖔𝖓𝖓𝖊𝖈𝖙𝖊𝖉 ✅  ",
-thumbnailUrl: "https://i.imgur.com/GVW7aoD.jpeg",
+title: " PEACEMAKER",
+thumbnailUrl: "https://storage.giftedtech.web.id/file/download/sbqQW.jpg",
 sourceUrl: "https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514",
 mediaType: 2,
 renderLargerThumbnail: true,
@@ -168,5 +148,6 @@ showAdAttribution: true
 setInterval(() => {
     console.log("☘️ 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗿𝗼𝗰𝗲𝘀𝘀...");
     process.exit();
-}, 180000); //30min
+}, 180000); //1440min
 module.exports = router;
+
