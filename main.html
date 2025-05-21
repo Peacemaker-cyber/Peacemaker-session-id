@@ -3,129 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="" type="image/x-icon">
+  <title>PEACEMAKER-MD</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* DARK CYBERPUNK THEME */
+    :root {
+      --neon-blue: #00f3ff;
+      --neon-purple: #9d00ff;
+      --dark-bg: #0a0a12;
+      --darker-bg: #050510;
+      --terminal-text: #e0e0ff;
+      --glow-effect: 0 0 10px var(--neon-blue), 0 0 20px rgba(0, 243, 255, 0.3);
+    }
+    
     body {
-      background-color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
-      color: white;
-    }
-
-    {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "url": "https://railway.app",
-            "logo": "https://files.catbox.moe/39z8jd.jpg"
-    }
-
-    .button-container {
-      text-align: center;
+      padding: 0;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      font-family: 'Courier New', monospace;
+      background-color: var(--dark-bg);
+      color: var(--terminal-text);
+      overflow: hidden;
+      position: relative;
     }
-
-    h3 {
-      margin-top: -40px;
+    
+    /* SCANLINES EFFECT */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(
+          rgba(0, 243, 255, 0.03) 1px, 
+          transparent 1px
+        );
+      background-size: 100% 3px;
+      pointer-events: none;
+      animation: scanline 10s linear infinite;
+      z-index: 1;
+    }
+    
+    @keyframes scanline {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100vh; }
+    }
+    
+    /* MAIN CONTAINER */
+    .hub-container {
+      position: relative;
+      z-index: 10;
+      width: 90%;
+      max-width: 500px;
+      padding: 2rem;
+      background: rgba(10, 10, 20, 0.8);
+      border: 1px solid var(--neon-blue);
+      box-shadow: var(--glow-effect);
+      border-radius: 5px;
+      backdrop-filter: blur(5px);
+    }
+    
+    /* HEADER STYLES */
+    .hub-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .hub-header i {
+      font-size: 2.5rem;
+      color: var(--neon-blue);
+      text-shadow: var(--glow-effect);
+      margin-bottom: 0.5rem;
+    }
+    
+    .hub-header h3 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--neon-blue);
+      text-shadow: var(--glow-effect);
+      position: relative;
       opacity: 0;
-      animation: fadeIn 3s forwards;
+      animation: fadeIn 1.5s forwards 0.5s;
     }
-
-    .button {
-      width: 140px;
-      height: 40px;
+    
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    
+    .hub-header h3::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, 
+        transparent, 
+        var(--neon-blue), 
+        transparent);
+      margin-top: 0.5rem;
+      box-shadow: var(--glow-effect);
+    }
+    
+    /* BUTTON GRID */
+    .button-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    /* CYBERPUNK BUTTONS */
+    .cyber-button {
+      position: relative;
+      width: 100%;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 0px 15px;
-      background-color: red;
-      border-radius: 10px;
-      border: none;
-      color: white;
-      position: relative;
+      padding: 0 20px;
+      background-color: rgba(0, 0, 20, 0.7);
+      border-radius: 4px;
+      border: 1px solid var(--neon-blue);
+      color: var(--terminal-text);
       cursor: pointer;
-      font-weight: 900;
-      transition-duration: .2s;
-      background: linear-gradient(0deg, #000, #272727);
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
       text-decoration: none;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0, 243, 255, 0.3);
     }
-
-  
-    footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #222; /* Darker gray footer background */
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    font-size: 14px;
     
-  }
-    .button:before, .button:after {
-      content: '';
-      position: absolute;
-      left: -2px;
-      top: -2px;
-      border-radius: 10px;
-      background: linear-gradient(45deg, #48ff00, #15ff00, #000000,#000000, #ff0000);
-      background-size: 400%;
-      width: calc(100% + 4px);
-      height: calc(100% + 4px);
-      z-index: -1;
-      animation: steam 10s linear infinite;
+    .cyber-button:hover {
+      background-color: rgba(0, 10, 30, 0.9);
+      box-shadow: 0 0 15px var(--neon-blue);
+      transform: translateY(-2px);
     }
-
-    @keyframes steam {
-      0% {
-        background-position: 0 0;
-      }
-
-      50% {
-        background-position: 400% 0;
-      }
-
-      100% {
-        background-position: 0 0;
-      }
+    
+    .cyber-button:active {
+      transform: translateY(0);
     }
-
-    .button:after {
-      filter: blur(50px);
+    
+    .cyber-button i {
+      font-size: 1.2rem;
+      color: var(--neon-blue);
     }
-
-    .button span {
-      z-index: 1;
+    
+    /* SPECIAL BUTTON STYLES */
+    .cyber-button.qr {
+      border-color: var(--neon-blue);
     }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    
+    .cyber-button.pair {
+      border-color: var(--neon-purple);
+    }
+    
+    .cyber-button.fork {
+      border-color: #6e40c9;
+    }
+    
+    .cyber-button.whatsapp {
+      border-color: #25D366;
+    }
+    
+    .cyber-button.money {
+      border-color: #f5d300;
+    }
+    
+    .cyber-button.contact {
+      border-color: #ff073a;
+    }
+    
+    /* FOOTER */
+    .cyber-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--terminal-text);
+      position: relative;
+    }
+    
+    .cyber-footer::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, 
+        transparent, 
+        var(--neon-blue), 
+        transparent);
+      margin-bottom: 1rem;
+      box-shadow: var(--glow-effect);
+    }
+    
+    /* STATUS MESSAGE */
+    .status-message {
+      text-align: center;
+      margin: 1rem 0;
+      color: var(--neon-blue);
+      font-style: italic;
+      text-shadow: var(--glow-effect);
     }
   </style>
 </head>
 <body>
-  <div class="button-container">
-    <h3> XMD SESSION</h3>
-    <div></div>
-    <a href="/qr" class="button" target="_blank"> <span>QR-CODE</span> </a> <br>
-    <a href="/pair" class="button" target="_blank"> <span>PAIRING-CODE</span> </a> <br>
-    <a href="https://github.com/Peacemaker-cyber/Peacemaker-md/fork" class="button" target="_blank"> <span>FORK MALVIN XMD</span> </a> <br> </a>
-    <a href="https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514" class="button" target="_blank"> <span>WhatsApp</span> </a> <br>
+  <!-- DARK CYBERPUNK BACKGROUND -->
+  <div class="hub-container">
+    <div class="hub-header">
+      <i class="fas fa-network-wired"></i>
+      <h3>CLOUD AI</h3>
+    </div>
+    
+    <div class="button-grid">
+      <a href="/qr" class="cyber-button qr" target="_blank">
+        <i class="fas fa-qrcode"></i> QR-CODE
+      </a>
+      
+      <a href="/pair" class="cyber-button pair" target="_blank">
+        <i class="fas fa-link"></i> PAIRING-CODE
+      </a>
+      
+      <a href="https://github.com/Peacemaker-cyber/Peacemaker-md" class="cyber-button fork" target="_blank">
+        <i class="fab fa-github"></i> FORK REPO
+      </a>
+      
+      <a href="https://whatsapp.com/channel/0029Vb5O5AGEawdqTdMRj514" class="cyber-button whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> WHATSAPP
+      </a>
+      
+      <a href="https://sofabets.com?ref=67f140187b99daac288b1d14" class="cyber-button money" target="_blank">
+        <i class="fas fa-coins"></i> EARN CREDITS
+      </a>
+      
+      <p class="status-message">NEED DEPLOYMENT?</p>
+      
+      <a href="https://wa.me/254726293089" class="cyber-button contact" target="_blank">
+        <i class="fas fa-terminal"></i> CONTACT ADMIN
+      </a>
+    </div>
+    
+    <div class="cyber-footer">
+      <p>PEACEMAKER SYSTEMS &copy; <span id="currentYear"></span></p>
+      <p>v4.2.0 | SECURE CONNECTION ESTABLISHED</p>
+    </div>
+  </div>
 
-    <p>HAVE ANY ERROR CLICK ERROR BUTTON</p>
-
-    <a href="https://wa.me/254726293089" class="button" target="_blank"> <span>ERROR</span> </a> <br>
-
-    <footer>
-     PEACEMAKER-MD &copy; <span id="currentYear"></span>
-    </footer>
-  
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
 </body>
-</html>
+  </html>
